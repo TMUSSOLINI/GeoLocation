@@ -17,4 +17,12 @@ function initMap() {
     });
 }
 
-initMap();
+function loadMapScript() {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_KEY}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+}
+
+loadMapScript();
